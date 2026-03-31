@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rocky's World</title>
+  <style>
+    :root {
+      --bg: #fff8f1;
+      --card: #ffffff;
+      --text: #2f2a27;
+      --muted: #7c6f67;
+      --accent: #f4b183;
+      --accent-dark: #e58b4a;
+      --line: #f1dfd0;
+      --shadow: 0 12px 30px rgba(66, 41, 24, 0.08);
+      --radius: 24px;
+      --max: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(180deg, #fff9f4 0%, #fff4ea 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(10px);
+      background: rgba(255, 248, 241, 0.82);
+      border-bottom: 1px solid rgba(229, 139, 74, 0.08);
+    }
+
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 0;
+      gap: 16px;
+    }
+
+    .brand {
+      font-weight: 700;
+      font-size: 1.1rem;
+      letter-spacing: 0.02em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .hero {
+      padding: 56px 0 28px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 8px 14px;
+      color: var(--muted);
+      font-size: 0.88rem;
+      box-shadow: var(--shadow);
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      font-size: clamp(2.2rem, 4vw, 4.6rem);
+      line-height: 0.98;
+      margin: 0 0 16px;
+      letter-spacing: -0.03em;
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 1.05rem;
+      max-width: 560px;
+      margin: 0 0 26px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      border: none;
+      border-radius: 999px;
+      padding: 14px 20px;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .btn-primary {
+      background: var(--text);
+      color: #fff;
+      box-shadow: var(--shadow);
+    }
+
+    .btn-secondary {
+      background: #fff;
+      color: var(--text);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card {
+      background: var(--card);
+      border-radius: 32px;
+      padding: 14px;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(229, 139, 74, 0.08);
+    }
+
+    .hero-card img {
+      border-radius: 24px;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      width: 100%;
+    }
+
+    .section {
+      padding: 24px 0 12px;
+    }
+
+    .section-title {
+      font-size: 1.8rem;
+      margin: 0 0 8px;
+    }
+
+    .section-subtitle {
+      color: var(--muted);
+      margin: 0 0 20px;
+    }
+
+    .about-card,
+    .diary-card,
+    .video-card,
+    .note-card {
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(229, 139, 74, 0.08);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 20px;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .chip {
+      background: #fff4ea;
+      color: #8b5d3d;
+      border: 1px solid #f3d1b6;
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-size: 0.88rem;
+    }
+
+    .fact-list {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 22px;
+      box-shadow: var(--shadow);
+      background: var(--card);
+      min-height: 240px;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.35s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.04);
+    }
+
+    .gallery-caption {
+      position: absolute;
+      left: 12px;
+      bottom: 12px;
+      background: rgba(255,255,255,0.9);
+      color: var(--text);
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 0.84rem;
+    }
+
+    .video-wrap {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%;
+      border-radius: 20px;
+      overflow: hidden;
+      margin-top: 16px;
+    }
+
+    .video-wrap iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .diary-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .diary-date {
+      color: var(--accent-dark);
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 8px;
+    }
+
+    footer {
+      padding: 40px 0 64px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.92rem;
+    }
+
+    .note-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid,
+      .about-grid,
+      .note-grid,
+      .diary-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .nav-links {
+        gap: 12px;
+        font-size: 0.88rem;
+      }
+
+      .hero {
+        padding-top: 32px;
+      }
+
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a href="#top" class="brand">🐶 Rocky's World</a>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#videos">Videos</a>
+        <a href="#diary">Diary</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">A tiny internet home for one very good dog</div>
+          <h1>Soft ears, big eyes, main character energy.</h1>
+          <p>
+            This is Rocky’s little corner of the internet — a cozy place for favorite photos,
+            cute videos, daily adventures, and the kind of memories you never want to lose.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#gallery">See the gallery</a>
+            <a class="btn btn-secondary" href="#about">Meet Rocky</a>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=1200&q=80" alt="Rocky hero photo" />
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container">
+        <h2 class="section-title">Meet Rocky</h2>
+        <p class="section-subtitle">You can swap every word here later. Right now we are optimizing for adorable.</p>
+
+        <div class="about-grid">
+          <div class="about-card">
+            <p>
+              Rocky is a sweet, curious, slightly dramatic dog with a strong opinion on snacks,
+              blankets, and how long a walk should be. He loves sunshine naps, watching the world
+              from the window, and acting like every visitor came just for him.
+            </p>
+            <div class="chips">
+              <span class="chip">Vancouver boy</span>
+              <span class="chip">Professional napper</span>
+              <span class="chip">Treat motivated</span>
+              <span class="chip">Tiny but important</span>
+            </div>
+          </div>
+
+          <div class="about-card">
+            <h3 style="margin-top:0;">Quick facts</h3>
+            <ul class="fact-list">
+              <li>Favorite hobby: following humans from room to room</li>
+              <li>Favorite place: the softest blanket in the house</li>
+              <li>Favorite sport: surprise zoomies</li>
+              <li>Biggest talent: looking innocent immediately after chaos</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="gallery">
+      <div class="container">
+        <h2 class="section-title">Photo gallery</h2>
+        <p class="section-subtitle">For now these are placeholder photos. Later we replace them with Rocky’s actual masterpieces.</p>
+
+        <div class="gallery-grid">
+          <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1518717758536-85ae29035b6d?auto=format&fit=crop&w=1200&q=80" alt="Gallery photo 1" />
+            <div class="gallery-caption">Nap time</div>
+          </div>
+          <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=1200&q=80" alt="Gallery photo 2" />
+            <div class="gallery-caption">Best smile</div>
+          </div>
+          <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1525253086316-d0c936c814f8?auto=format&fit=crop&w=1200&q=80" alt="Gallery photo 3" />
+            <div class="gallery-caption">Adventure mode</div>
+          </div>
+          <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1517423440428-a5a00ad493e8?auto=format&fit=crop&w=1200&q=80" alt="Gallery photo 4" />
+            <div class="gallery-caption">Tiny legend</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="videos">
+      <div class="container">
+        <h2 class="section-title">Video moment</h2>
+        <p class="section-subtitle">Easiest vibe-coding move: embed a YouTube video instead of uploading giant files.</p>
+
+        <div class="video-card">
+          <div><strong>Rocky’s daily zoomies</strong></div>
+          <div class="video-wrap">
+            <iframe src="https://www.youtube.com/embed/aqz-KE-bpKQ" title="Rocky video" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="diary">
+      <div class="container">
+        <h2 class="section-title">Mini diary</h2>
+        <p class="section-subtitle">A few tiny entries make the site feel personal immediately.</p>
+
+        <div class="diary-grid">
+          <article class="diary-card">
+            <div class="diary-date">March 2026</div>
+            <strong>Sunny park day</strong>
+            <p>Rocky spent 20 minutes pretending not to be tired and then fell asleep in the car two minutes later.</p>
+          </article>
+          <article class="diary-card">
+            <div class="diary-date">February 2026</div>
+            <strong>New toy, big feelings</strong>
+            <p>The toy lasted one afternoon. The joy lasted forever. The stuffing situation was complicated.</p>
+          </article>
+          <article class="diary-card">
+            <div class="diary-date">January 2026</div>
+            <strong>Snow inspection</strong>
+            <p>First reaction: confusion. Second reaction: zoomies. Third reaction: immediate request to be carried.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container note-grid">
+        <div class="note-card">
+          <h3 style="margin-top:0;">What to replace first</h3>
+          <p style="margin-bottom:0; color: var(--muted);">
+            Change the dog name, hero text, About paragraph, four gallery image links, and the YouTube embed link.
+          </p>
+        </div>
+        <div class="note-card">
+          <h3 style="margin-top:0;">How to publish later</h3>
+          <p style="margin-bottom:0; color: var(--muted);">
+            Save this file as <strong>index.html</strong>, upload it to a GitHub repository, then enable GitHub Pages.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Made with questionable self-control and excellent dog taste.
+  </footer>
+</body>
+</html>
