@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rocky's World</title>
+  <title>糯米的小世界</title>
   <style>
     :root {
       --bg: #fff8f1;
@@ -14,7 +14,7 @@
       --accent-dark: #e58b4a;
       --line: #f1dfd0;
       --shadow: 0 12px 30px rgba(66, 41, 24, 0.08);
-      --radius: 24px;
+      --radius: 20px;
       --max: 1120px;
     }
 
@@ -81,13 +81,13 @@
     }
 
     .hero {
-      padding: 56px 0 28px;
+      padding: 42px 0 18px;
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      gap: 28px;
+      grid-template-columns: 1fr 0.9fr;
+      gap: 22px;
       align-items: center;
     }
 
@@ -151,8 +151,8 @@
 
     .hero-card {
       background: var(--card);
-      border-radius: 32px;
-      padding: 14px;
+      border-radius: 24px;
+      padding: 10px;
       box-shadow: var(--shadow);
       border: 1px solid rgba(229, 139, 74, 0.08);
     }
@@ -165,7 +165,7 @@
     }
 
     .section {
-      padding: 24px 0 12px;
+      padding: 18px 0 10px;
     }
 
     .section-title {
@@ -179,7 +179,6 @@
     }
 
     .about-card,
-    .diary-card,
     .video-card,
     .note-card {
       background: var(--card);
@@ -331,12 +330,11 @@
 <body>
   <nav class="nav">
     <div class="container nav-inner">
-      <a href="#top" class="brand">🐶 Rocky's World</a>
+      <a href="#top" class="brand">🐶 糯米的小世界</a>
       <div class="nav-links">
         <a href="#about">About</a>
         <a href="#gallery">Gallery</a>
         <a href="#videos">Videos</a>
-        <a href="#diary">Diary</a>
       </div>
     </div>
   </nav>
@@ -345,51 +343,48 @@
     <section class="hero">
       <div class="container hero-grid">
         <div>
-          <div class="eyebrow">A tiny internet home for one very good dog</div>
-          <h1>Soft ears, big eyes, main character energy.</h1>
+          <div class="eyebrow">一只小狗的专属角落</div>
+          <h1>小白团团狗，活泼小海豹的专属世界。</h1>
           <p>
-            This is Rocky’s little corner of the internet — a cozy place for favorite photos,
-            cute videos, daily adventures, and the kind of memories you never want to lose.
+            这里是糯米的小小网站，记录着糯米和爸爸妈妈爷爷奶奶外公外婆的开心瞬间。
           </p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#gallery">See the gallery</a>
-            <a class="btn btn-secondary" href="#about">Meet Rocky</a>
+            <a class="btn btn-primary" href="#gallery">看照片</a>
+            <a class="btn btn-secondary" href="#about">认识糯米</a>
           </div>
         </div>
 
         <div class="hero-card">
-          <img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=1200&q=80" alt="Rocky hero photo" />
+          <img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=1200&q=80" alt="糯米主页照片" />
         </div>
       </div>
     </section>
 
     <section class="section" id="about">
       <div class="container">
-        <h2 class="section-title">Meet Rocky</h2>
-        <p class="section-subtitle">You can swap every word here later. Right now we are optimizing for adorable.</p>
+        <h2 class="section-title">About 糯米</h2>
+        <p class="section-subtitle">先简单一点，但要足够可爱。</p>
 
         <div class="about-grid">
           <div class="about-card">
             <p>
-              Rocky is a sweet, curious, slightly dramatic dog with a strong opinion on snacks,
-              blankets, and how long a walk should be. He loves sunshine naps, watching the world
-              from the window, and acting like every visitor came just for him.
+              糯米是一只甜甜的、很好奇、偶尔有点小戏精的狗狗。她喜欢零食、喜欢软软的毯子，也很在意散步到底够不够久。平时最爱晒太阳、看窗外，还有把每一个来家里的人都当成专门来看她的。
             </p>
             <div class="chips">
-              <span class="chip">Vancouver boy</span>
-              <span class="chip">Professional napper</span>
-              <span class="chip">Treat motivated</span>
-              <span class="chip">Tiny but important</span>
+              <span class="chip">小小一只</span>
+              <span class="chip">很会睡觉</span>
+              <span class="chip">喜欢零食</span>
+              <span class="chip">很重要</span>
             </div>
           </div>
 
           <div class="about-card">
-            <h3 style="margin-top:0;">Quick facts</h3>
+            <h3 style="margin-top:0;">小档案</h3>
             <ul class="fact-list">
-              <li>Favorite hobby: following humans from room to room</li>
-              <li>Favorite place: the softest blanket in the house</li>
-              <li>Favorite sport: surprise zoomies</li>
-              <li>Biggest talent: looking innocent immediately after chaos</li>
+              <li>最喜欢：出去散步</li>
+              <li>最爱待的地方：糯米的五个小窝</li>
+              <li>拿手项目：装无辜</li>
+              <li>隐藏技能：欺负爸爸妈妈</li>
             </ul>
           </div>
         </div>
@@ -398,25 +393,25 @@
 
     <section class="section" id="gallery">
       <div class="container">
-        <h2 class="section-title">Photo gallery</h2>
-        <p class="section-subtitle">For now these are placeholder photos. Later we replace them with Rocky’s actual masterpieces.</p>
+        <h2 class="section-title">Gallery</h2>
+        <p class="section-subtitle">现在先放示意图，之后再换成糯米自己的照片。</p>
 
         <div class="gallery-grid">
           <div class="gallery-item">
             <img src="https://images.unsplash.com/photo-1518717758536-85ae29035b6d?auto=format&fit=crop&w=1200&q=80" alt="Gallery photo 1" />
-            <div class="gallery-caption">Nap time</div>
+            <div class="gallery-caption">睡觉时间</div>
           </div>
           <div class="gallery-item">
             <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=1200&q=80" alt="Gallery photo 2" />
-            <div class="gallery-caption">Best smile</div>
+            <div class="gallery-caption">可爱笑容</div>
           </div>
           <div class="gallery-item">
             <img src="https://images.unsplash.com/photo-1525253086316-d0c936c814f8?auto=format&fit=crop&w=1200&q=80" alt="Gallery photo 3" />
-            <div class="gallery-caption">Adventure mode</div>
+            <div class="gallery-caption">出门玩耍</div>
           </div>
           <div class="gallery-item">
             <img src="https://images.unsplash.com/photo-1517423440428-a5a00ad493e8?auto=format&fit=crop&w=1200&q=80" alt="Gallery photo 4" />
-            <div class="gallery-caption">Tiny legend</div>
+            <div class="gallery-caption">糯米出场</div>
           </div>
         </div>
       </div>
@@ -424,55 +419,24 @@
 
     <section class="section" id="videos">
       <div class="container">
-        <h2 class="section-title">Video moment</h2>
-        <p class="section-subtitle">Easiest vibe-coding move: embed a YouTube video instead of uploading giant files.</p>
+        <h2 class="section-title">Videos</h2>
+        <p class="section-subtitle">先简单放一个视频位置，之后可以换成糯米自己的影片。</p>
 
         <div class="video-card">
-          <div><strong>Rocky’s daily zoomies</strong></div>
+          <div><strong>糯米的日常小视频</strong></div>
           <div class="video-wrap">
-            <iframe src="https://www.youtube.com/embed/aqz-KE-bpKQ" title="Rocky video" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/aqz-KE-bpKQ" title="糯米视频" allowfullscreen></iframe>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section" id="diary">
-      <div class="container">
-        <h2 class="section-title">Mini diary</h2>
-        <p class="section-subtitle">A few tiny entries make the site feel personal immediately.</p>
-
-        <div class="diary-grid">
-          <article class="diary-card">
-            <div class="diary-date">March 2026</div>
-            <strong>Sunny park day</strong>
-            <p>Rocky spent 20 minutes pretending not to be tired and then fell asleep in the car two minutes later.</p>
-          </article>
-          <article class="diary-card">
-            <div class="diary-date">February 2026</div>
-            <strong>New toy, big feelings</strong>
-            <p>The toy lasted one afternoon. The joy lasted forever. The stuffing situation was complicated.</p>
-          </article>
-          <article class="diary-card">
-            <div class="diary-date">January 2026</div>
-            <strong>Snow inspection</strong>
-            <p>First reaction: confusion. Second reaction: zoomies. Third reaction: immediate request to be carried.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
     <section class="section">
-      <div class="container note-grid">
+      <div class="container">
         <div class="note-card">
-          <h3 style="margin-top:0;">What to replace first</h3>
+          <h3 style="margin-top:0;">下一步可以改什么</h3>
           <p style="margin-bottom:0; color: var(--muted);">
-            Change the dog name, hero text, About paragraph, four gallery image links, and the YouTube embed link.
-          </p>
-        </div>
-        <div class="note-card">
-          <h3 style="margin-top:0;">How to publish later</h3>
-          <p style="margin-bottom:0; color: var(--muted);">
-            Save this file as <strong>index.html</strong>, upload it to a GitHub repository, then enable GitHub Pages.
+            先改名字、首页介绍、照片和视频链接，就已经会很像糯米自己的小网站了。
           </p>
         </div>
       </div>
@@ -480,7 +444,7 @@
   </main>
 
   <footer>
-    Made with questionable self-control and excellent dog taste.
+    用很多偏爱和一点点耐心做给糯米的小网站。
   </footer>
 </body>
 </html>
